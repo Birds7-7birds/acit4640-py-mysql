@@ -3,7 +3,7 @@ name: docker4640
 on:
   push:
     branches:
-      - 'my_main_branch'
+      - 'master'
 
 jobs:
   docker:
