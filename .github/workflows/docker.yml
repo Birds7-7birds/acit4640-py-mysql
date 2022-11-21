@@ -23,5 +23,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
             push: true
-            file: ./web/
-            tags: birds7/demo4640:latest
+            context: ./app/
+            tags: birds7/timapp:latest
