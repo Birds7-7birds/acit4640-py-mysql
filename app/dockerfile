@@ -1,0 +1,27 @@
+FROM python:3
+
+RUN mkdir /app 
+RUN mkdir /backend
+RUN mkdir /frontend
+
+WORKDIR /tmp
+
+RUN pip install gunicorn
+RUN apt-get  update -y
+RUN apt-get install -y wget wait-for-it
+
+
+COPY ./backend ./backend
+RUN mv ./backend /backend/src
+
+WORKDIR /backend/src
+RUN python -m pip install -r ./requirements.txt
+
+COPY ./waitforbackend.sh .
+
+
+EXPOSE 8000
+CMD ["bash", "waitforbackend.sh"]
+# CMD ["wait-for-it" , "-h", "$MYSQL_HOST", "-p", "3306", "-s", "-t", "30", "--" , "gunicorn", "wsgi:app", "-b", "0.0.0.0:8000"]
+
+
