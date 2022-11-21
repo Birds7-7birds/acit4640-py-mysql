@@ -24,4 +24,12 @@ jobs:
         with:
             push: true
             context: ./app/
-            tags: birds7/timapp:latest
+            tags: birds7/timapp2:latest
+
+      -
+        name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+            push: true
+            context: ./web/
+            tags: birds7/timweb:latest
