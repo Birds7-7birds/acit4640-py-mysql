@@ -24,4 +24,4 @@ jobs:
         with:
             push: true
             file: ./web/
-            tags: timoguic/demo4640:latest
+            tags: birds7/demo4640:latest
